@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Smart Disaster &amp; Fire Emergency Routing System.vcxproj" />
+</Solution>
