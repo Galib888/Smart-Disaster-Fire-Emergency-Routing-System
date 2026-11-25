@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Smart Disaster &amp; Fire Emergency Routing System.vcxproj" />
+  <Project Path="Smart Disaster &amp; Fire Emergency Routing System.vcxproj" Id="67de5138-4ef3-4013-a96f-aa0e2685c576" />
 </Solution>
