@@ -1,30 +1,32 @@
-
 #include<iostream>
 
 using namespace std;
 
+template <typename T>
 class Graph;
 
+template <typename T>
 class Node {
 
 private:
 
-    int vertex;
+    T vertex;
     Node* next;
 
 public:
 
-    explicit Node(int vertex) : vertex(vertex), next(nullptr) {}
+    explicit Node(T vertex) : vertex(vertex), next(nullptr) {}
 
-    friend class Graph;
+    friend class Graph<T>;
 
 };
 
+template <typename T>
 class Graph {
 
 private:
 
-    Node** adjList;
+    Node<T>** adjList;
     int vertices;
     int edges;
 
@@ -32,7 +34,7 @@ public:
 
     explicit Graph(int vertices) : vertices(vertices), edges(0) {
 
-        adjList = new Node * [vertices];
+        adjList = new Node<T>*[vertices];
 
         for (int i = 0; i < vertices; i++) {
 
@@ -54,7 +56,7 @@ public:
         return edges;
     }
 
-    void add_edge(int source, int destination) {
+    void add_edge(T source, T destination) {
 
         if (source < 0 || source >= vertices ||
             destination < 0 || destination >= vertices) {
@@ -63,14 +65,14 @@ public:
 
         }
 
-        Node* newNode = new Node(destination);
+        Node<T>* newNode = new Node<T>(destination);
 
         newNode->next = adjList[source];
 
         adjList[source] = newNode;
 
 
-        newNode = new Node(source);
+        newNode = new Node<T>(source);
 
         newNode->next = adjList[destination];
 
@@ -86,7 +88,7 @@ public:
 
             cout << i << " -> ";
 
-            Node* temp = adjList[i];
+            Node<T>* temp = adjList[i];
 
             while (temp != nullptr) {
 
@@ -102,7 +104,7 @@ public:
 
     }
 
-    bool has_edge(int source, int destination) const {
+    bool has_edge(T source, T destination) const {
 
         if (source < 0 || source >= vertices ||
             destination < 0 || destination >= vertices) {
@@ -111,7 +113,7 @@ public:
 
         }
 
-        Node* temp = adjList[source];
+        Node<T>* temp = adjList[source];
 
         while (temp != nullptr) {
 
@@ -133,11 +135,11 @@ public:
 
         for (int i = 0; i < vertices; i++) {
 
-            Node* temp = adjList[i];
+            Node<T>* temp = adjList[i];
 
             while (temp != nullptr) {
 
-                Node* nodeToDelete = temp;
+                Node<T>* nodeToDelete = temp;
 
                 temp = temp->next;
 
