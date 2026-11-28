@@ -25,6 +25,8 @@ All core data structures will be implemented from scratch in C++, without relyin
 - [x] Implemented a template-based Graph class. (26/11/2026)
 - [x] Custom Stack implementation. (27/11/2026)
 - [x] Custom Queue implementation. (27/11/2026)
+- [x] Implemented a template-based Stack class. (28/11/2026)
+- [x] Implemented a template-based Queue class. (28/11/2026)
 - [ ] Custom Min-Heap implementation.
 - [ ] Custom Max-Heap implementation.
 - [ ] Custom Hash Table implementation.
