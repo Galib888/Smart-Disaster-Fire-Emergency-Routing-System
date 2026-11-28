@@ -1,30 +1,32 @@
-
 #include<iostream>
 
 using namespace std;
 
+template <typename T>
 class Stack;
 
+template <typename T>
 class Node {
 
 private:
 
-    int value;
-    Node* next;
+    T value;
+    Node<T>* next;
 
 public:
 
-    explicit Node(int value) : value(value), next(nullptr) {}
+    explicit Node(T value) : value(value), next(nullptr) {}
 
-    friend class Stack;
+    friend class Stack<T>;
 
 };
 
+template <typename T>
 class Stack {
 
 private:
 
-    Node* top = nullptr;
+    Node<T>* top = nullptr;
     int length = 0;
 
 public:
@@ -44,7 +46,7 @@ public:
 
     void display() const {
 
-        Node* temp = top;
+        Node<T>* temp = top;
 
         while (temp != nullptr) {
 
@@ -57,9 +59,9 @@ public:
         cout << endl;
     }
 
-    void push(int value) {
+    void push(T value) {
 
-        Node* newNode = new Node(value);
+        Node<T>* newNode = new Node<T>(value);
 
         newNode->next = top;
         top = newNode;
@@ -74,7 +76,7 @@ public:
             return false;
         }
 
-        Node* temp = top;
+        Node<T>* temp = top;
 
         top = top->next;
 
@@ -85,7 +87,7 @@ public:
         return true;
     }
 
-    bool peek(int& value) const {
+    bool peek(T& value) const {
 
         if (top == nullptr) {
 
@@ -101,7 +103,7 @@ public:
 
         while (top != nullptr) {
 
-            Node* temp = top;
+            Node<T>* temp = top;
 
             top = top->next;
 

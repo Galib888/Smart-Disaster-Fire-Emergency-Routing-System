@@ -29,5 +29,11 @@
     <ClInclude Include="Graph.h">
       <Filter>containers</Filter>
     </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>containers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

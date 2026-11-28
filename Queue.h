@@ -1,31 +1,33 @@
-
 #include<iostream>
 
 using namespace std;
 
+template <typename T>
 class Queue;
 
+template <typename T>
 class Node {
 
 private:
 
-    int value;
-    Node* next;
+    T value;
+    Node<T>* next;
 
 public:
 
-    explicit Node(int value) : value(value), next(nullptr) {}
+    explicit Node(T value) : value(value), next(nullptr) {}
 
-    friend class Queue;
+    friend class Queue<T>;
 
 };
 
+template <typename T>
 class Queue {
 
 private:
 
-    Node* front = nullptr;
-    Node* rear = nullptr;
+    Node<T>* front = nullptr;
+    Node<T>* rear = nullptr;
     int length = 0;
 
 public:
@@ -45,7 +47,7 @@ public:
 
     void display() const {
 
-        Node* temp = front;
+        Node<T>* temp = front;
 
         while (temp != nullptr) {
 
@@ -58,9 +60,9 @@ public:
         cout << endl;
     }
 
-    void enqueue(int value) {
+    void enqueue(T value) {
 
-        Node* newNode = new Node(value);
+        Node<T>* newNode = new Node<T>(value);
 
         if (front == nullptr) {
 
@@ -86,7 +88,7 @@ public:
             return false;
         }
 
-        Node* temp = front;
+        Node<T>* temp = front;
 
         front = front->next;
 
@@ -102,7 +104,7 @@ public:
         return true;
     }
 
-    bool peek(int& value) const {
+    bool peek(T& value) const {
 
         if (front == nullptr) {
 
@@ -118,7 +120,7 @@ public:
 
         while (front != nullptr) {
 
-            Node* temp = front;
+            Node<T>* temp = front;
 
             front = front->next;
 
